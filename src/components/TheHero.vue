@@ -11,31 +11,24 @@
         />
         <span v-if="search.error">{{ search.error }}</span>
       </form>
-      <div class="columns is-flex-wrap-wrap">
-        <div
-          v-for="(picture, index) in pictures"
-          :key="index"
-          class="column is-3-desktop is-full-mobile"
-        >
-          <img
-            :src="picture.cover_photo.urls.full"
-            :alt="picture.cover_photo.urls.alt_description"
-          />
-        </div>
-      </div>
-      <div class="has-text-centered" v-if="pictures.length < 1">
-        No Pictures found
-      </div>
+      <Pictures :pictures="pictures" />
+      <Error :error="pictures.length < 1" errorMsg="No Pictures Found" />
     </div>
   </section>
 </template>
 
 <script>
 import useSearch from "@/use/search";
+import Pictures from "./Pictures";
+import Error from "./Error";
 export default {
   name: "TheHero",
   props: {
     title: String,
+  },
+  components: {
+    Pictures,
+    Error
   },
   setup() {
     const { search, pictures, onSubmit, onError, loading } = useSearch();
