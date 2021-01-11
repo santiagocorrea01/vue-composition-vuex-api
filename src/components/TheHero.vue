@@ -11,11 +11,11 @@
         />
         <span v-if="search.error">{{ search.error }}</span>
       </form>
-      <div class="columns is-mobile is-flex-wrap-wrap">
+      <div class="columns is-flex-wrap-wrap">
         <div
           v-for="(picture, index) in pictures"
           :key="index"
-          class="column is-3"
+          class="column is-3-tablet is-full-mobile"
         >
           <img
             :src="picture.cover_photo.urls.full"
