@@ -15,7 +15,7 @@
         <div
           v-for="(picture, index) in pictures"
           :key="index"
-          class="column is-3-tablet is-full-mobile"
+          class="column is-3-desktop is-full-mobile"
         >
           <img
             :src="picture.cover_photo.urls.full"
